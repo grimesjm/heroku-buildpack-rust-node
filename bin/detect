@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -f "$1/backend/RustConfig" ] || [ -f "$1/backend/rust-toolchain" ] || [ -f "$1/backend/Cargo.toml" ]; then
+      echo "Rust backend detected"
+      if [ -f "$1/frontend/package.json" ] ; then
+          echo "JS frontend detected"
+          exit 0
+      else
+          exit 1
+      fi
+  else
+      exit 1
+  fi
